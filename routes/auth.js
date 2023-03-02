@@ -38,8 +38,9 @@ router.post(
         email: req.body.email,
         phone: req.body.phone,
         gender: req.body.gender,
-        domain: req.body.domain,
         type: req.body.type,
+        domain: req.body.domain,
+        level: req.body.level,
         password: secPass,
       });
       const data = {
@@ -85,13 +86,13 @@ router.post(
           error: "Please try to login with correct credentials",
         });
       }
+      success = true;
       const data = {
         user: {
           id: user.id,
         },
       };
       const authToken = jwt.sign(data, JWT_SECRET);
-      success = true;
       res.json({ success, authToken });
     } catch {
       res.status(500).send("Some error occurred");

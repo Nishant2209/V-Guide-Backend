@@ -18,13 +18,15 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  domain: {
-    type: String,
-    required: true,
-  },
   type: {
     type: String,
-    required: true,
+    required: true
+  },
+  domain: {
+    type: String,
+  },
+  level: {
+    type: String,
   },
   password: {
     type: String,
